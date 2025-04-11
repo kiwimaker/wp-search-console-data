@@ -7,7 +7,7 @@ Integrates Google Search Console data directly into your WordPress admin area, p
 ## Features
 
 *   Displays Clicks, Impressions, CTR, and Position data from Google Search Console.
-*   Adds sortable data columns to the Posts and Pages list tables.
+*   Adds sortable data columns to the Posts and Pages list tables. *(Note: Sorting applies only to the currently visible page due to client-side implementation)*.
 *   Shows a data summary in the Admin Bar when viewing single posts/pages from the frontend (while logged in).
 *   Uses secure Service Account authentication (no user OAuth flow needed).
 *   Caches API data for performance (default 72 hours).

@@ -95,23 +95,42 @@ class WPSCD_Settings {
 	}
 
 	/**
-	 * Enqueue scripts for the admin settings page.
+	 * Enqueue styles and scripts for the admin settings page and list tables.
 	 *
 	 * @param string $hook_suffix The current admin page hook.
 	 */
 	public function enqueue_admin_scripts( $hook_suffix ) {
-		// Check if we are on our settings page
-		// The hook suffix for add_options_page is settings_page_{menu_slug}
-		if ( 'settings_page_' . $this->settings_page_slug !== $hook_suffix ) {
-			return;
+		// Enqueue settings page assets
+		if ( 'settings_page_' . $this->settings_page_slug === $hook_suffix ) {
+			wp_enqueue_style(
+				'wpscd-admin-styles',
+				WPSCD_URL . 'assets/css/admin.css',
+				array(),
+				WPSCD_VERSION
+			);
+			wp_enqueue_script(
+				'wpscd-admin-scripts',
+				WPSCD_URL . 'assets/js/admin.js',
+				array( 'jquery' ),
+				WPSCD_VERSION,
+				true
+			);
 		}
-		wp_enqueue_script(
-			'wpscd-admin-scripts',
-			WPSCD_URL . 'assets/js/admin.js',
-			array( 'jquery' ), // Dependency, although not strictly needed for this simple script
-			WPSCD_VERSION,
-			true // Load in footer
-		);
+
+		// Enqueue table sorting script on post list pages
+		if ( 'edit.php' === $hook_suffix ) {
+			// Check the current screen's post type
+			$screen = get_current_screen();
+			if ( $screen && in_array( $screen->post_type, array( 'post', 'page' ) ) ) {
+				wp_enqueue_script(
+					'wpscd-admin-table-sort',
+					WPSCD_URL . 'assets/js/admin-table-sort.js',
+					array( 'jquery' ),
+					WPSCD_VERSION,
+					true
+				);
+			}
+		}
 	}
 
 	/**
