@@ -1,0 +1,15 @@
+{
+    "name": "nexir/wp-search-console-data",
+    "description": "Integrates Google Search Console data into WordPress admin.",
+    "type": "wordpress-plugin",
+    "license": "GPL-2.0-or-later",
+    "authors": [
+        {
+            "name": "Nexir",
+            "email": "info@nexir.es"
+        }
+    ],
+    "require": {
+        "google/apiclient": "^2.15"
+    }
+}

@@ -1,0 +1,55 @@
+.wpscd-settings-section {
+	background-color: #fff;
+	padding: 15px 20px;
+	border: 1px solid #ccd0d4;
+	box-shadow: 0 1px 1px rgba(0, 0, 0, 0.04);
+	margin-bottom: 20px;
+}
+
+.wpscd-settings-section h2 {
+	margin-top: 0;
+	margin-bottom: 15px;
+	padding-bottom: 10px;
+	border-bottom: 1px solid #eee;
+	font-size: 1.2em;
+}
+
+#wpbody-content .wrap form > h2,
+#wpbody-content .wrap form > hr {
+    /* Hide default separators added by WP Settings API when sections are contiguous */
+    display: none;
+}
+
+/* Add some margin between fields */
+.wpscd-settings-section .form-table th,
+.wpscd-settings-section .form-table td {
+    padding: 15px 10px 15px 0;
+}
+
+.wpscd-settings-section .form-table th {
+    width: 200px; /* Adjust if needed */
+}
+
+.wpscd-service-account-status {
+    margin-top: 15px;
+    padding: 10px;
+    border: 1px solid #ccd0d4;
+    background-color: #f9f9f9;
+}
+
+.wpscd-service-account-status strong {
+    display: inline-block;
+    min-width: 150px; /* Align values */
+}
+
+.wpscd-copy-button {
+    margin-left: 10px;
+    vertical-align: middle;
+}
+
+.wpscd-copy-feedback {
+    display: inline-block;
+    margin-left: 8px;
+    font-style: italic;
+    color: green;
+} 
